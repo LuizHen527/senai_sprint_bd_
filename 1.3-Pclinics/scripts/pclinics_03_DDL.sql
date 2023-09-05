@@ -1,0 +1,40 @@
+--DLL Pclinic
+
+CREATE DATABASE pclinics_03;
+
+USE pclinics_03;
+
+CREATE TABLE Clinica
+(
+	IdClinica INT PRIMARY KEY IDENTITY,
+	Endereco VARCHAR(300),
+)
+
+CREATE TABLE Veterinario
+(
+	IdVeterinario INT PRIMARY KEY IDENTITY,
+	IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica),
+	Nome VARCHAR(150),
+	CRMV VARCHAR(150),
+)
+
+CREATE TABLE TipoPet
+(
+	IdTipoPet INT PRIMARY KEY IDENTITY,
+	Descricao VARCHAR(150),
+)
+
+CREATE TABLE Raca
+(
+	IdRaca INT PRIMARY KEY IDENTITY,
+	Descricao VARCHAR(150),
+)
+
+CREATE TABLE Atendimentos
+(
+	IdAtendimento INT PRIMARY KEY IDENTITY,
+	IdVeterinario INT FOREIGN KEY REFERENCES Veterinario(IdVeterinario),
+	IdPet INT FOREIGN KEY REFERENCES Pet(IdPet),
+	Descricao VARCHAR(150),
+	Data VARCHAR(150),
+)
