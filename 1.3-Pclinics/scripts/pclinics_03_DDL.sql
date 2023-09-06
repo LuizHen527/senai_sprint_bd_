@@ -57,3 +57,4 @@ CREATE TABLE Atendimentos
 	Descricao VARCHAR(150),
 	Data VARCHAR(150),
 )
+
