@@ -1,0 +1,39 @@
+--DDL
+
+CREATE DATABASE optus_04;
+
+USE optus_04;
+
+CREATE TABLE Usuario
+(
+	IdUsuario INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(150),
+	Senha VARCHAR(150),
+	Email VARCHAR(400),
+	Permissão VARCHAR(200),
+)
+
+CREATE TABLE Estilo
+(
+	IdEstilo INT PRIMARY KEY IDENTITY,
+	Estilo VARCHAR(150),
+)
+
+CREATE TABLE Artista
+(
+	IdArtista INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(300),
+)
+
+
+CREATE TABLE Album
+(
+	IdAlbum INT PRIMARY KEY IDENTITY,
+	IdEstilo INT FOREIGN KEY REFERENCES Estilo(IdEstilo),
+	IdArtista INT FOREIGN KEY REFERENCES Artista(IdArtista),
+	Titulo VARCHAR(400),
+	DataLancamento DATE,
+	[Local] VARCHAR(400),
+	Minutos VARCHAR(10),
+	Visualização VARCHAR(100),
+)
